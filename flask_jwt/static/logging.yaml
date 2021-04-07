@@ -1,0 +1,68 @@
+version: 1
+disable_existing_loggers: False #Means that you should not disable pre-existing non-root loggers.
+#By Default The Format = <LEVEL>:<LOGGER_NAME>:<MESSAGE>
+formatters:
+  brief:
+    format: "%(asctime)s - %(name)-35s - %(levelname)-8s - %(message)s"
+    datefmt: "%I:%M:%S"
+  standard:
+    format: "%(asctime)s; %(levelname)-8s; %(name)-35s; %(funcName)-20s; %(lineno)4d: %(message)s"
+    datefmt: "%I:%M:%S"
+  multi_process:
+    class: 'logging.Formatter'
+    format: "%(asctime)s; %(levelname)-8s; [%(thread;)s]; %(name)-35s; %(funcName)-20s; %(lineno)-4d: %(message)s"
+  multi_thread:
+    class: 'logging.Formatter'
+    format: "%(asctime)s; %(levelname)-8s; [%(process)d]; %(name)-35s; %(funcName)-20s; %(lineno)-4d: %(message)s"
+  verbose:
+    class: 'logging.Formatter'
+    format: "%(asctime)s; %(levelname)-8s; [%(process)d - %(processName)s - %(thread)s]; %(name)-35s; %(funcName)-20s; %(lineno)4d: %(message)s"
+  multi-line:
+    class: 'logging.Formatter'
+    format: "Level: %(levelname)s\n Time: %(asctime)s\n Process: %(process)d - %(processName)s\n Thread: %(thread)s\n Logger: %(name)s\n Path: %(module)s:%(lineno)d\n Function: %(funcName)s\n Message: %(message)s\n"
+
+# Specify where to route your logs. By default the logging library will use StreamHandler
+handlers:
+  console:
+    class: logging.StreamHandler
+    # By default level is set to Warn meaning that logging module will filter out any DEBUG or INFO messages.
+    level: DEBUG
+    formatter: brief
+    stream: ext://sys.stdout
+
+  info_file_handler:
+    level: INFO
+    class: logging.handlers.RotatingFileHandler
+    formatter: verbose
+    filename: ./logs/info.log
+    maxBytes: 10485760 #10 MB
+    backupCount: 20
+    encoding: utf8
+
+  error_file_handler:
+    level: ERROR
+    class: logging.handlers.RotatingFileHandler
+    formatter: multi-line
+    filename: ./logs/error.log
+    maxBytes: 10485760 #10 MB
+    backupCount: 20
+    encoding: utf8
+
+  smtp:
+    level: CRITICAL
+    class: logging.handlers.RotatingFileHandler
+    formatter: multi-line
+    filename: ./logs/critical.log
+    maxBytes: 10485760 #10 MB
+    backupCount: 20
+    encoding: utf8
+
+loggers:
+  applogger:
+    level: INFO
+    handlers: [console, info_file_handler,error_file_handler,smtp]
+    propagate: no
+
+root:
+  level: INFO
+  handlers: [console, info_file_handler,error_file_handler,smtp]
