@@ -1,0 +1,8 @@
+2021-04-07 15:39:49,976; INFO    ; [924 - MainProcess - 4316]; flask_jwt.applogger                ; main                ;   16: __main__ - Message = Starting app in Development
+2021-04-07 15:39:49,977; INFO    ; [924 - MainProcess - 4316]; werkzeug                           ; _log                ;  113: 127.0.0.1 - - [07/Apr/2021 15:39:49] "[37mGET / HTTP/1.1[0m" 200 -
+2021-04-07 15:40:27,820; INFO    ; [924 - MainProcess - 5008]; werkzeug                           ; _log                ;  113:  * Detected change in 'C:\\Users\\tmsusr\\PycharmProjects\\MyFirstProject\\flask_jwt\\applogger.py', reloading
+2021-04-07 15:44:03,089; ERROR   ; [5288 - MainProcess - 5364]; flask_jwt.applogger                ; login_user          ;   59: __main__ - Error = WWW.Authentication - Basic realm: "Wrong Password !!"
+2021-04-07 15:44:03,095; INFO    ; [5288 - MainProcess - 5364]; werkzeug                           ; _log                ;  113: 127.0.0.1 - - [07/Apr/2021 15:44:03] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2021-04-07 16:55:15,466; ERROR   ; [6412 - MainProcess - 5796]; flask_jwt.applogger                ; login_user          ;   59: __main__ - Error = WWW.Authentication - Basic realm: "Wrong Password !!"
+2021-04-07 16:55:15,468; INFO    ; [6412 - MainProcess - 5796]; werkzeug                           ; _log                ;  113: 127.0.0.1 - - [07/Apr/2021 16:55:15] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2021-04-07 16:55:19,910; INFO    ; [6412 - MainProcess - 6204]; werkzeug                           ; _log                ;  113: 127.0.0.1 - - [07/Apr/2021 16:55:19] "[37mPOST /login HTTP/1.1[0m" 200 -

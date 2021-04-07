@@ -1,0 +1,18 @@
+Level: ERROR
+ Time: 2021-04-07 15:44:03,089
+ Process: 5288 - MainProcess
+ Thread: 5364
+ Logger: flask_jwt.applogger
+ Path: app:59
+ Function: login_user
+ Message: __main__ - Error = WWW.Authentication - Basic realm: "Wrong Password !!"
+
+Level: ERROR
+ Time: 2021-04-07 16:55:15,466
+ Process: 6412 - MainProcess
+ Thread: 5796
+ Logger: flask_jwt.applogger
+ Path: app:59
+ Function: login_user
+ Message: __main__ - Error = WWW.Authentication - Basic realm: "Wrong Password !!"
+
